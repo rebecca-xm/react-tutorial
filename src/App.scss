@@ -1,8 +1,13 @@
 .App {
     display: flex;
-    background: black;
+    background:rgb(22, 166, 214);
     min-height: 100vh;
 
     justify-content: space-around;
     align-items: center;
 }
+
+.blue {
+    color: blue;
+    font-size: 50px;
+  }

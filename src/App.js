@@ -1,13 +1,42 @@
-import './App.scss';
+import { useReducer, useState } from 'react';
 import Tweet from './components/Tweet';
+import './App.scss';
 
 function App() {
+  
+  //* SESTO STEP: STATE
+  // Come prima cosa, importo { useState } da React.
+  // Al suo interno posso inserire come parametri i dati che desidero.
+
+  // const [isBlue, setBlue] = useState(false);
+  // const [count, setCount] =  useState(0);
+
+  // const increment = () => {
+  //   setCount(count +1);
+  //   setBlue(!isBlue);             // <= l'opposto del suo valore attuale
+  // };
+
+  const [users, setUsers] = useState([
+    { name: 'Rebecca', message: 'This is a random tweet' },
+    { name: 'Pippo', message: 'A second tweet' },
+    { name: 'Benny', message: 'A third tweet' },
+    { name: 'Ercole', message: 'A fourth tweet' }
+  ]);
+
   return (
     <div className="App">
-      <Tweet name='Rebecca' message='This is a random tweet' likes='22' />
+      {/* <h1 className={isBlue ? 'blue': ''}>Change text!</h1>
+      <button onClick={increment}>Increment</button>
+      <h1>{count}</h1> */}
+
+      {users.map(user => (
+        <Tweet name={user.name} message={user.message} />
+      ))};
+
+      {/* <Tweet name='Rebecca' message='This is a random tweet' likes='22' />
       <Tweet name='Pippo' message='A second tweet' likes='44' />
       <Tweet name='Benny' message='A third tweet' likes='66' />
-      <Tweet name='Ercole' message='A fourth tweet' likes='88' />
+      <Tweet name='Ercole' message='A fourth tweet' likes='88' /> */}
     </div>
   );
 }
@@ -35,3 +64,4 @@ export default App;
 // andrò ad inserire tale props come suo parametro in Tweet.jsx.
 // Lo stesso procedimento va seguito per modificare dinamicamente
 // gli altri elementi all'interno del componente.
+
